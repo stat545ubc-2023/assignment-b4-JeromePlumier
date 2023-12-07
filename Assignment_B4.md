@@ -198,6 +198,24 @@ new added beginning of the word sequence, and a “y” that comes at the
 new end of the word sequence.
 
 ``` r
+#' @title Transform a singular word into its pig Latin equivalent
+#' 
+#' @description Given a string of letters, this function will return a pig Latin
+#' word sequence based on personal rules: For words that end with a vowel, that
+#' vowel is duplicated at the beginning of the word sequence. In all other 
+#' cases, the end of a word sequence from its last vowel onward is placed at
+#' the beginning of the word sequence. Moreover, all words receive a "o" that
+#' follows the new added beginning of the word sequence, and a "y" that comes
+#' at the end of the new word sequence.
+#' 
+#' @param input, a string. It must be composed solely out of letters, and
+#' contain both at least one vowel and one consonant.
+#' 
+#' @return a new word sequence with only lower case letters. It is the 
+#' inputed string modified by personal pig Latin rules.
+#' 
+#' @export
+
 pigLatin <- function(input) {
   
   if(!(is.character(input))) {
@@ -221,24 +239,6 @@ pigLatin <- function(input) {
     str_c(str_sub(input, start = vowel_position), "o", str_sub(input, start = 1L, end = vowel_position-1), "y")
   }
 }
-
-#' @title Transform a singular word into its pig Latin equivalent
-#' 
-#' @description Given a string of letters, this function will return a pig Latin
-#' word sequence based on personal rules: For words that end with a vowel, that
-#' vowel is duplicated at the beginning of the word sequence. In all other 
-#' cases, the end of a word sequence from its last vowel onward is placed at
-#' the beginning of the word sequence. Moreover, all words receive a "o" that
-#' follows the new added beginning of the word sequence, and a "y" that comes
-#' at the end of the new word sequence.
-#' 
-#' @param input, a string. It must be composed solely out of letters, and
-#' contain both at least one vowel and one consonant.
-#' 
-#' @return a new word sequence with only lower case letters. It is the 
-#' inputed string modified by personal pig Latin rules.
-#' 
-#' @export
 ```
 
 ### Exercise 2.2: Function examples
@@ -286,7 +286,7 @@ expect_error(pigLatin(x))
 })
 ```
 
-    ## Test passed 🥳
+    ## Test passed 😀
 
 ``` r
 test_that('Only one word', {
@@ -295,7 +295,7 @@ expect_error(pigLatin(x))
 })
 ```
 
-    ## Test passed 🎉
+    ## Test passed 🎊
 
 ``` r
 test_that('The string is only made out of letters', {
@@ -304,7 +304,7 @@ expect_error(pigLatin(x))
 })
 ```
 
-    ## Test passed 🌈
+    ## Test passed 😀
 
 ``` r
 test_that('The string has at least one consonant', {
@@ -313,7 +313,7 @@ expect_error(pigLatin(x))
 })
 ```
 
-    ## Test passed 🎉
+    ## Test passed 😸
 
 ``` r
 test_that('The string has at least one vowel', {
@@ -322,4 +322,4 @@ expect_error(pigLatin(x))
 })
 ```
 
-    ## Test passed 🎉
+    ## Test passed 🌈
